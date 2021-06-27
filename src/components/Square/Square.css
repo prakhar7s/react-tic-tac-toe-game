@@ -1,0 +1,25 @@
+.board-cell {
+  background: var(--cell-bg);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: var(--cell-font-size);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px #babecc;
+  transition: 0.7s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.board-cell.filled {
+  box-shadow: none;
+}
+
+.board-cell.filled.player-x {
+  background-color: rgba(24, 50, 201, 0.2);
+}
+
+.board-cell.filled.player-o {
+  background-color: rgba(255, 0, 64, 0.3);
+}

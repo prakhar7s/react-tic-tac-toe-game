@@ -1,0 +1,6 @@
+:root {
+  --board-bg: rgba(255, 255, 255, 0.5);
+  --cell-size: 100px;
+  --cell-bg: rgb(255, 255, 255);
+  --cell-font-size: 50px;
+}
