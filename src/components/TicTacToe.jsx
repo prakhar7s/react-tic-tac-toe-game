@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Square from "./Square/Square";
 import "./TicTacToe.css";
+import ToastNotification from "./toast-notification/toast-notification";
 import "./variables.css";
 const TicTacToe = () => {
   const [board, setBoard] = useState([
@@ -9,6 +10,9 @@ const TicTacToe = () => {
     new Array(3).fill(null),
   ]);
   const [chanceOfX, setChanceOfX] = useState(true);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMsg, setToastMsg] = useState("");
+  const [winnerCells, setWinnerCells] = useState([]);
 
   const resetGame = () => {
     setBoard([
@@ -18,6 +22,17 @@ const TicTacToe = () => {
     ]);
 
     setChanceOfX(true);
+
+    displayToastMsg("Game restarted!");
+  };
+
+  const displayToastMsg = (msg) => {
+    setToastMsg(msg);
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 5000);
   };
 
   return (
@@ -37,6 +52,9 @@ const TicTacToe = () => {
                 board={board}
                 chanceOfX={chanceOfX}
                 setChanceOfX={setChanceOfX}
+                displayToastMsg={displayToastMsg}
+                winnerCells={winnerCells}
+                setWinnerCells={setWinnerCells}
               />
             ))
           )}
@@ -44,6 +62,11 @@ const TicTacToe = () => {
         <button className="reset-button" onClick={resetGame}>
           Restart
         </button>
+        <ToastNotification
+          showToast={showToast}
+          msg={toastMsg}
+          setPos="bottom:100"
+        />
       </div>
     </div>
   );
