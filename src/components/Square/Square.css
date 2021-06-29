@@ -6,7 +6,7 @@
   place-items: center;
   font-size: var(--cell-font-size);
   border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px #babecc;
+  /* box-shadow: 5px5px 15px rgba(255, 255, 255, 0.1), 5px -5px 15px #babecc; */
   transition: 0.7s;
   user-select: none;
   cursor: pointer;
@@ -17,16 +17,21 @@
 }
 
 .board-cell.filled.player-x {
-  background-color: rgba(24, 50, 201, 0.2);
+  background-color: rgba(15, 32, 131, 0.6);
 }
 
 .board-cell.filled.player-o {
-  background-color: rgba(255, 0, 64, 0.3);
+  background-color: rgba(255, 30, 0, 0.6);
 }
 
 .board-cell.filled.winner-cell {
-  background-color: rgba(155, 42, 190, 0.452);
+  background: linear-gradient(
+    to left,
+    rgba(233, 38, 12, 0.3),
+    rgba(165, 151, 27, 0.7)
+  );
   animation: change-bg 1s linear infinite;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 @keyframes change-bg {

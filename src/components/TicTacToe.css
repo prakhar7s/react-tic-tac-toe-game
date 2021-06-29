@@ -2,6 +2,7 @@
   height: 100vh;
   display: grid;
   place-items: center;
+  background: #f5f5f5f6;
 }
 
 .board {
@@ -21,11 +22,11 @@
   display: grid;
   place-items: center;
   opacity: 0.4;
-  background-color: rgba(255, 255, 0, 0.5);
+  background-color: rgba(255, 255, 0, 0.6);
 }
 
 .player-tab.active {
-  background-color: rgba(255, 255, 0, 0.644);
+  background-color: rgba(255, 255, 0, 0.944);
   opacity: 1;
 }
 

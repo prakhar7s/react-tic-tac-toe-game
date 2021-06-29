@@ -18,7 +18,6 @@ const Square = ({
     if (checkGameOver()) {
       return displayToastMsg("Game Over!");
     }
-
     //check all rows
     const rowsRes = checkRows();
     if (rowsRes[0]) {
@@ -40,7 +39,7 @@ const Square = ({
     const dia = first && [0, 1, 2].every((idx) => board[idx][idx] === first);
     if (dia) {
       setWinnerCells(["0-0", "1-1", "2-2"]);
-      displayToastMsg(`${board[0][0]} is the Winner!`);
+      displayToastMsg(`${board[1][1]} is the Winner!`);
     }
 
     //check rev diagonal
@@ -49,7 +48,7 @@ const Square = ({
       rfirst && [0, 1, 2].every((idx) => board[idx][2 - idx] === rfirst);
     if (resDia) {
       setWinnerCells(["0-2", "1-1", "2-0"]);
-      displayToastMsg(`${board[0][2]} is the Winner!`);
+      displayToastMsg(`${board[1][1]} is the Winner!`);
     }
   };
 
@@ -78,6 +77,7 @@ const Square = ({
     );
   };
 
+  // Utility Methods
   const convertColsToRows = () => {
     var res = [[], [], []];
 
@@ -89,7 +89,6 @@ const Square = ({
     }
 
     return res;
-    // console.log(res, "s");
   };
 
   const checkGameOver = () => {
@@ -99,6 +98,9 @@ const Square = ({
 
   const handleCellClick = () => {
     if (board[row][col]) return;
+    if (winnerCells.length !== 0) {
+      return displayToastMsg(`We already have the Winner`);
+    }
 
     const tempBoard = board;
     tempBoard[row][col] = chanceOfX ? "X" : "O";
@@ -118,7 +120,6 @@ const Square = ({
           : " filled player-o"
       }${
         winnerCells.some((cellCords) => {
-          console.log(cellCords, `${row}-${col}`);
           return cellCords === `${row}-${col}`;
         })
           ? " winner-cell"

@@ -22,11 +22,14 @@ const TicTacToe = () => {
     ]);
 
     setChanceOfX(true);
+    setWinnerCells([]);
 
     displayToastMsg("Game restarted!");
   };
 
   const displayToastMsg = (msg) => {
+    if (showToast) return;
+
     setToastMsg(msg);
     setShowToast(true);
 
