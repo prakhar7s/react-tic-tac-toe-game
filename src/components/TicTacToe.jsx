@@ -40,6 +40,10 @@ const TicTacToe = () => {
 
   return (
     <div className="tic-tac-toe-container">
+      <h1 className="game-heading">
+        <span>T</span>ic <span>T</span>oc <span>T</span>oe 🚀
+      </h1>
+
       <div className="board">
         <div className="board-header">
           <div className={`player-tab${chanceOfX ? " active" : ""}`}>X</div>
