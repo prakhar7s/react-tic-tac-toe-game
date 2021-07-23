@@ -2,7 +2,7 @@ import { useState } from "react";
 import Square from "./Square/Square";
 import "./TicTacToe.css";
 import ToastNotification from "./toast-notification/toast-notification";
-import "./variables.css";
+
 const TicTacToe = () => {
   const [board, setBoard] = useState([
     new Array(3).fill(null),
@@ -69,11 +69,7 @@ const TicTacToe = () => {
         <button className="reset-button" onClick={resetGame}>
           Restart
         </button>
-        <ToastNotification
-          showToast={showToast}
-          msg={toastMsg}
-          setPos="bottom:100"
-        />
+        {showToast && <ToastNotification msg={toastMsg} setPos="top:100" />}
       </div>
     </div>
   );

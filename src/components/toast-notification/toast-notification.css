@@ -7,10 +7,7 @@
   width: 250px;
   text-align: center;
   transform: translateX(300px);
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.24);
-}
-
-.toast-notification.show-toast {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   animation: entry 5s linear;
 }
 

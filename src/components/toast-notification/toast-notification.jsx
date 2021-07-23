@@ -1,20 +1,21 @@
 import "./toast-notification.css";
 
-const ToastNotification = ({ msg, showToast, setPos }) => {
+const ToastNotification = ({ msg, setPos }) => {
   const pos = setPos.split(":");
   const styles = {};
 
-  if (pos[0] === "top") {
-    styles.top = `${pos[1]}px`;
-  } else if (pos[0] === "bottom") {
-    styles.bottom = `${pos[1]}px`;
+  switch (pos[0]) {
+    case "top":
+      styles.top = `${pos[1]}px`;
+      break;
+    case "bottom":
+    default:
+      styles.bottom = `${pos[1]}px`;
+      break;
   }
 
   return (
-    <div
-      style={styles}
-      className={`toast-notification${showToast ? " show-toast" : ""}`}
-    >
+    <div style={styles} className="toast-notification show-toast">
       {msg}
     </div>
   );
